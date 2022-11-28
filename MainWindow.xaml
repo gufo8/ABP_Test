@@ -1,0 +1,52 @@
+﻿<Window x:Class="ABP_Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ABP_Test" xmlns:local1="clr-namespace:ABP_Test.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="500" WindowStartupLocation="CenterScreen"> <!--Loaded="Window_Loaded"-->
+    <Window.Resources>
+        <local1:HTMLScrapper x:Key="Parse"/>
+    </Window.Resources>
+    <ScrollViewer>
+        <Grid DataContext="{StaticResource Parse}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="10"></RowDefinition>
+                    <RowDefinition MinHeight="10"></RowDefinition>
+                    <RowDefinition MinHeight="10"></RowDefinition>
+                    <RowDefinition MinHeight="10"></RowDefinition>
+                    <RowDefinition MinHeight="10"></RowDefinition>
+                    <RowDefinition MinHeight="10"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ListBox Name="ListModels" Margin="3,3" Background="AntiqueWhite"/>
+                <!--ItemsSource="{Binding CarModelsNames}" SelectionChanged ="ListModels_SelectionChanged"-->
+                <Button Name="Btn1" Margin="1" Height="35" Width="120" Grid.Column="1" FontSize="12" Content="Get car model names" Click="Btn1_Click"     
+                                ToolTip="Click the 'Add' button before enter data in the fields, then click 'Apply'"/>
+                <ListBox Name="List2" Margin="3,3" Background="AntiqueWhite" Grid.Row="1" Grid.Column="0"/>
+                <Button Name="Btn2" Margin="5" Height="35" Width="70" Grid.Row="1" Grid.Column="1" FontSize="12" Content="Page2" Click ="Btn2_Click"
+                        ToolTip="Click the 'Add' button before enter data in the fields, then click 'Apply'"/> <!--IsEnabled="{Binding IsBtnPage2Enable}"-->
+                <ListBox Name="List3" Margin="3,3" Background="AntiqueWhite" Grid.Row="2" Grid.Column="0"/>
+                <Button Name="Btn3" Margin="5" Height="35" Width="70" Grid.Row="2" Grid.Column="1" FontSize="12" Content="Page3" Click ="Btn3_Click"
+                        ToolTip="Click the 'Add' button before enter data in the fields, then click 'Apply'"/>
+                <ListBox Name="List4" Margin="3,3" Background="AntiqueWhite" Grid.Row="3" Grid.Column="0"/>
+                <Button Name="Btn4" Margin="5" Height="35" Width="70" Grid.Row="3" Grid.Column="1" FontSize="12" Content="Page4" Click ="Btn4_Click"
+                        ToolTip="Click the 'Add' button before enter data in the fields, then click 'Apply'"/>
+                <ListBox Name="List5" Margin="3,3" Background="AntiqueWhite" Grid.Row="4" Grid.Column="0"/>
+                <Button Name="Btn5" Margin="5" Height="35" Width="70" Grid.Row="4" Grid.Column="1" FontSize="12" Content="Page5" Click ="Btn5_Click"
+                        ToolTip="Click the 'Add' button before enter data in the fields, then click 'Apply'"/>                
+                
+            </Grid>
+            
+            <StackPanel Orientation="Horizontal"/>
+
+        </Grid>
+    </ScrollViewer>
+
+</Window>
