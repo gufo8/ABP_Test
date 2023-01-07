@@ -1,5 +1,5 @@
 ﻿{
   "ConnectionStrings": {
-    "DefaultConnection": "Server=MACHINE-1O01OGG\\SQLEXPRESS;Database=ABPTest;Trusted_Connection=True;"
+    "DefaultConnection": "Server=.\\SQLEXPRESS;Database=ABPTest;Trusted_Connection=True;"
   }
 }

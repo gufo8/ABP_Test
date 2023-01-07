@@ -21,17 +21,8 @@ namespace ABP_Test.Models
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=MACHINE-1O01OGG;Database=ABPTest;Trusted_Connection=True;TrustServerCertificate=true;MultipleActiveResultSets=true");
-            //optionsBuilder.UseLazyLoadingProxies();
+            optionsBuilder.UseSqlServer("Server=.;Database=ABPTest;Trusted_Connection=True;TrustServerCertificate=true;MultipleActiveResultSets=true");
         }
-
-        //protected override void OnConfiguring(
-        //    DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlite(
-        //        "Data Source=products.db");
-        //    optionsBuilder.UseLazyLoadingProxies();
-        //}
-
+       
     }
 }

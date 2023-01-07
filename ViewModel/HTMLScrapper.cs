@@ -20,16 +20,7 @@ namespace ABP_Test.ViewModel
         public ObservableCollection<string> ComplectationsBody { get; set; }
         public ObservableCollection<string> GroupPartsNames { get; set; }
         public ObservableCollection<string> SubGroupNames { get; set; }
-        public ObservableCollection<string> SparePartNames { get; set; }
-
-        #region
-        // was used for debug
-        //public List<ModelCode> ModelCodes { get; set; }
-        //public List<Complectation> LComplectations { get; set; }
-        //public List<GroupParts> LGroupParts { get; set; }
-        //public List<SubGroup> LSubGroup { get; set; }
-        //public List<SparePart> LSparePart { get; set; }
-        #endregion
+        public ObservableCollection<string> SparePartNames { get; set; }       
 
         public HTMLScrapper()
         {
@@ -38,37 +29,7 @@ namespace ABP_Test.ViewModel
             ComplectationsBody = new ObservableCollection<string>();
             GroupPartsNames = new ObservableCollection<string>();
             SubGroupNames = new ObservableCollection<string>();
-            SparePartNames = new ObservableCollection<string>();
-            #region
-            //for debug
-            //ModelCodes = new List<ModelCode>();
-            //LComplectations = new List<Complectation>();
-            //LGroupParts = new List<GroupParts>();
-            //LSubGroup = new List<SubGroup>();
-            //LSparePart = new List<SparePart>();
-
-            //dont have enough time with electricity o realize it
-            //prop
-            //private int mListCarModelsNamesSelectedInd = 0;
-            //public int ListCarModelsNamesSelectedInd
-            //{
-            //    get => mListCarModelsNamesSelectedInd;
-            //    set
-            //    {
-            //        mListCarModelsNamesSelectedInd = value;
-            //    }
-            //}
-
-            //private bool mbtnPage2Enable = false;
-            //public bool IsBtnPage2Enable
-            //{
-            //    get => mbtnPage2Enable;
-            //    set
-            //    {
-            //        mbtnPage2Enable = value;
-            //    }
-            //}
-            #endregion
+            SparePartNames = new ObservableCollection<string>();            
         }
 
         //Page1
@@ -95,7 +56,6 @@ namespace ABP_Test.ViewModel
                             };
                             CarModelsNames.Add(mCarModel.Name);
                             m_db.CarModels.Add(mCarModel);
-                            //m_db.CarModels;
                             m_db.SaveChanges();
                             tempId.Add(mCarModel.Id);
                             j = -1;
@@ -145,7 +105,6 @@ namespace ABP_Test.ViewModel
                                 CarModelID = tmp
                             };
                             ComplectationsBody.Add(mComplect.Body);
-                            //LComplectations.Add(mComplect);
                             m_db.Complectations.Add(mComplect);
                             m_db.SaveChanges();
                             tempId.Add(mComplect.Id);
@@ -161,8 +120,7 @@ namespace ABP_Test.ViewModel
         }
 
         //Page3
-        //to save time due to problems with electricity
-        //- for the first item only
+        // for the first item only
         public void GetGroupParts(string url)
         {
             int tmp = tempId[0];
@@ -183,7 +141,6 @@ namespace ABP_Test.ViewModel
                                 ComplectationID = tmp,
                             };
                             GroupPartsNames.Add(mGroupPart.Name);
-                            //LGroupParts.Add(mGroupPart);
                             m_db.GroupParts.Add(mGroupPart);
                             m_db.SaveChanges();
                             tempId.Add(mGroupPart.Id);
@@ -272,109 +229,7 @@ namespace ABP_Test.ViewModel
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        //couldn't get to it 
-
-        //public void GetAdditInfoSpareParts(string url)
-        //{
-        //    var document = web.Load(url);
-        //    var listFromPage5 = document.DocumentNode.SelectNodes("//*[@class = 'table inner-part']");            
-        //}
-
-
-
-        #region
-        //try to perse https://www.ilcats.ru/
-        //foreach (var item in listModelsFromPage)
-        //{
-        //var mCode = new ModelCode
-        //{
-        //    Name = item.InnerText
-        //};
-        //ModelCodes.Add(mCode);
-
-
-        //var newModel = new CarModel
-        //{
-        //    ModelCode = item.SelectSingleNode("td[1]").InnerText,
-        //    Name = item.SelectSingleNode("td[2]").InnerText,
-        //    ManufactureDate = item.SelectSingleNode("td[3]").InnerText,
-        //    Equipment = item.SelectSingleNode("td[4]").InnerText
-        //};
-
-        //ListModels.Add(newModel);
-        //Names1pg.Add(item.InnerText);
-        //}
-        //..../html/body/div[3]/div[3]/div[2]/div[2]/table/tbody/tr[2]/td/a
-        //..../html/body/div[3]/div[3]/div[2]/div[2]/table/tbody/tr[2]
-        //}
-
-        //public void GetPage1(string url)
-        //{
-        //    var web = new HtmlWeb();
-        //    var document = web.Load(url);
-        //    //...//*[@id="Body"]/div[2]/div/div[1]/div[2]/div/div[1]/a
-        //    //.../html/body/div[1]/div[2]/div/div[1]/div[2]/div/div[1]/a
-        //    //var listModelsFromPage = document.DocumentNode.SelectNodes("//*[@class = 'List']");
-
-
-        //    //var listModelsFromPage = document.DocumentNode.SelectNodes("//*[@class = 'id']").Take(10);
-        //    var listModelsFromPage = document.DocumentNode.SelectNodes("//*[@class = 'List']").Take(10);
-
-        //    //var listModelsFromPage = document.DocumentNode.SelectNodes("/html/body/div[1]/div[2]/div/div[1]/div[1]");
-        //    //.../html/body/div[1]/div[2]/div/div[1]/div[2]/div
-        //    //.../html/body/div[1]/div[2]/div/div[1]/div[2]/div
-        //    //var listModelsFromPage = document.DocumentNode.SelectNodes("/html/body/div[3]/div[3]/div[2]/div[2]/table/tbody/tr[2]");
-        //    //var listModelsFromPage = document.DocumentNode.SelectNodes("//*[@class = 'table__td']");
-
-        //    foreach (var item in listModelsFromPage)
-        //    {
-        //        var mCode = new ModelCode
-        //        {
-        //            Name = item.SelectSingleNode("//*[@class = 'id']").InnerText,
-        //            ManufactureDate = item.SelectSingleNode("//*[@class = 'dateRange']").InnerText.Substring(0, 7) + "-" + item.SelectSingleNode("//*[@class = 'dateRange']").InnerText.Substring(20),
-        //            Equipment = item.SelectSingleNode("//*[@class = 'modelCode']").InnerText
-        //        };
-        //        ModelCodes.Add(mCode);
-        //    }
-
-
-
-        //    foreach (var item in listModelsFromPage)
-        //    {
-        //        var mCode = new ModelCode
-        //        {
-        //            Name = item.InnerText
-        //        };
-        //        ModelCodes.Add(mCode);
-
-
-        //        //var newModel = new CarModel
-        //        //{
-        //        //    ModelCode = item.SelectSingleNode("td[1]").InnerText,
-        //        //    Name = item.SelectSingleNode("td[2]").InnerText,
-        //        //    ManufactureDate = item.SelectSingleNode("td[3]").InnerText,
-        //        //    Equipment = item.SelectSingleNode("td[4]").InnerText
-        //        //};
-
-        //        //ListModels.Add(newModel);
-        //        //Names1pg.Add(item.InnerText);
-        //    }
-        //    //..../html/body/div[3]/div[3]/div[2]/div[2]/table/tbody/tr[2]/td/a
-        //    //..../html/body/div[3]/div[3]/div[2]/div[2]/table/tbody/tr[2]
-        //}
-
-
-        //public void GetPageHttpClient(string url)
-        //{
-        //    var client = new HttpClient();
-        //    var html = client.GetStringAsync(url);
-        //    var strLoad = html.Result;
-
-        //    //..../html/body/div[3]/div[3]/div[2]/div[2]/table/tbody/tr[2]/td/a
-        //}
-        #endregion
+        }      
 
     }
 }
